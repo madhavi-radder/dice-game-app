@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    button{
+        padding: 15px;
+        font-weight: bold;
+        background-color: purple;
+        border:0px solid;
+        border-radius: 10px;
+        color: white;
+        /* width: 80px; */
+        margin: auto;
+       
+        
+
+
+    }
+
+    button:active{
+margin: 3px;
+    }
+    button:hover{
+        color: black;
+        background-color: aquamarine;
+    }
+    #m{
+        width: 300px;
+        /* border: 1px solid green; */
+        text-align: center;
+        background-color: bisque;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: auto;
+    }
+    h2{
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+    }
+#m>div{
+    width:150px;
+    margin: auto;
+    border-radius: 14px;
+}
+#win>h1{
+    background-color: brown;
+    width: 250px;
+    color: white;
+    padding: 4px;
+    border-radius: 7px;
+    text-align: center;
+    margin: auto;
+
+}
+#box{
+    width: 300px;
+    margin: auto;
+    /* border: 1px solid green; */
+    text-align: center;
+}
+    </style>
+</head>
+<body>
+    <h2>Dice Roll</h2>
+    <div id="win">
+        <h1>start game</h1>
+    </div>
+    <div id="m">
+        <div id="p1">
+            <h1>0</h1>
+            <h2> Player 1 </h2>
+        </div>
+        <div id="p2">
+            <h1>0</h1>
+            <h2> Player 2 </h2>
+        </div>
+        <div id="p3">
+            <h1>0</h1>
+            <h2> Player 3 </h2>
+        </div>
+    </div>
+   <div id="box">
+    <button onclick="main()">roll dice</button>
+   </div>
+</body>
+</html>
+<script>
+  function main(){
+    var a= Math.ceil(Math.random()*6) ;
+    var b= Math.ceil( Math.random()*6);
+    var c= Math.ceil(Math.random()*6); 
+    // console.log(a);
+    // console.log(b);
+    // console.log(c);
+    
+    document.querySelector("#p1>h1").innerText = null; 
+    document.querySelector("#p1>h1").innerText = a ;
+
+    document.querySelector("#p2>h1").innerText = null; 
+    document.querySelector("#p2>h1").innerText = b ;
+
+    document.querySelector("#p3>h1").innerText = null; 
+    document.querySelector("#p3>h1").innerText = c ; 
+    if(a==b&&b==c){
+        var m=document.getElementById("p1");
+        m.style.backgroundColor =  "blue"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "blue"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "blue" 
+        document.querySelector("#win>h1").innerText="game is draw";
+    } 
+    else if(a==b&& b<c){
+        var m=document.getElementById("p1");
+        m.style.backgroundColor =  "yellow"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "yellow";
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "green" 
+        document.querySelector("#win>h1").innerText="player 3 won";
+    }
+    else if(a==b&&b>c){
+        var m=document.getElementById("p1");
+        m.style.backgroundColor =  "blue"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "blue"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "yellow";
+        document.querySelector("#win>h1").innerText="player1 and player 2 draw";
+    }
+    else if(a==c&&c>b){
+        var m=document.getElementById("p1");
+        m.style.backgroundColor =  "blue"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "yellow"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "blue"; 
+        document.querySelector("#win>h1").innerText="player 1 and player 3 draw";
+    }
+else if(a==c&&c<b){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "yellow"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "green"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "yellow" 
+        document.querySelector("#win>h1").innerText="player 2 won";
+}
+else if(b==c&&b<a){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "green";
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "blue"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "blue" 
+        document.querySelector("#win>h1").innerText="player 1 won";
+}
+else if(b==c&&b>a){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "yellow"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "green"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "green" 
+        document.querySelector("#win>h1").innerText="player 2 and player 3 draw";
+}
+else if((a>b&&a>c)&&(b>c)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "green"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "yellow"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "red" 
+        document.querySelector("#win>h1").innerText="player 1 won";
+}
+else if((a>b&&a>c)&&(b<c)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "green"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "red"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "yellow" 
+        document.querySelector("#win>h1").innerText="player 1 won";
+}
+else if((b>a&&b>c)&&(a>c)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "yellow"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "green"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "red" 
+        document.querySelector("#win>h1").innerText="player 2 won";
+}
+else if((b>a&&b>c)&&(a<c)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "red"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "green"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "yellow";
+        document.querySelector("#win>h1").innerText="player 2 won";
+}
+else if((c>a&&c>b)&&(a>b)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "yellow"
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "red"
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "green" 
+        document.querySelector("#win>h1").innerText="player 3 won";
+}
+else if((c>a&&c>b)&&(a<b)){
+    var m=document.getElementById("p1");
+        m.style.backgroundColor =  "red";
+
+        var n=document.getElementById("p2");
+        n.style.backgroundColor =  "yellow";
+
+        var o=document.getElementById("p3");
+        o.style.backgroundColor =  "green"; 
+        document.querySelector("#win>h1").innerText="player 3 won";
+}
+  }
+</script>
